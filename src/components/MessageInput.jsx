@@ -16,6 +16,12 @@ const MessageInput = ({ sendMessage }) => {
         }
     };
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            handleSubmit();
+        }
+    }
+
     return (
         <Form onSubmit={handleSubmit}>
             <InputField
@@ -25,7 +31,7 @@ const MessageInput = ({ sendMessage }) => {
                 placeholder="질문을 입력하세요"
 
             />
-            <SendButton type="submit">전송</SendButton>
+            <SendButton type="submit" onKeyDown={handleKeyDown}>전송</SendButton>
         </Form>
     );
 };

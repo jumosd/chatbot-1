@@ -49,6 +49,7 @@ const ChatBox = () => {
 
     return (
         <ChatBoxContainer>
+            <Title>씨발놈아 형량어때?</Title>
             <MessagesContainer>
                 {messages.map((message) => (
                     <Message key={message.id} content={message.content} sender={message.sender} />
@@ -62,16 +63,32 @@ const ChatBox = () => {
 
 export default ChatBox;
 
+
+const Title = styled.div`
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #222222;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid #333333;
+    text-align: center;
+`
+
 const ChatBoxContainer = styled.div`
-    max-width: 600px;
-    max-height: 400px;
-    height: 100vh;
-    margin: auto;
+    max-width: 500px;
+    width: 100%;
+    height: 800px;
     background-color: #333333;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.5);
     display: flex;
     flex-direction: column;
+    
+    @media (max-width: 768px) {
+        height: 100vh;
+    }
 `;
 
 const MessagesContainer = styled.div`
