@@ -49,7 +49,7 @@ const ChatBox = () => {
 
     return (
         <ChatBoxContainer>
-            <Title>씨발놈아 형량어때?</Title>
+            <Title>한심한 새끼를위한 무료 변호인</Title>
             <MessagesContainer>
                 {messages.map((message) => (
                     <Message key={message.id} content={message.content} sender={message.sender} />
