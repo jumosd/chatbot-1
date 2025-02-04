@@ -5,6 +5,7 @@ import MessageInput from './MessageInput';
 
 const ChatBox = () => {
     const [messages, setMessages] = useState([]);
+    const [loading, setLoading] = useState(false);
     const messagesEndRef = useRef(null);
 
     useEffect(() => {
@@ -15,8 +16,10 @@ const ChatBox = () => {
     const sendMessage = async (messageContent) => {
         if (messageContent.trim()) {
             appendMessage('user', messageContent);
+            setLoading(true);
             const botResponse = await getBotResponse(messageContent);
             appendMessage('bot', botResponse);
+            setLoading(false);
         }
     };
 
@@ -56,7 +59,7 @@ const ChatBox = () => {
                 ))}
                 <div ref={messagesEndRef} />
             </MessagesContainer>
-            <MessageInput sendMessage={sendMessage} />
+            <MessageInput sendMessage={sendMessage} loadingState={loading} />
         </ChatBoxContainer>
     );
 };

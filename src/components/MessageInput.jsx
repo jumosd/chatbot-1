@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const MessageInput = ({ sendMessage }) => {
+const MessageInput = ({ sendMessage, loadingState }) => {
     const [inputValue, setInputValue] = useState('');
 
     const handleInputChange = (event) => {
@@ -10,7 +10,7 @@ const MessageInput = ({ sendMessage }) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (inputValue.trim()) {
+        if (inputValue.trim() && !loadingState) {
             sendMessage(inputValue);
             setInputValue('');
         }
@@ -18,7 +18,7 @@ const MessageInput = ({ sendMessage }) => {
 
     const handleKeyDown = (event) => {
         if (event.key === 'Enter') {
-            handleSubmit();
+            handleSubmit(event);
         }
     }
 
@@ -29,9 +29,9 @@ const MessageInput = ({ sendMessage }) => {
                 value={inputValue}
                 onChange={handleInputChange}
                 placeholder="질문을 입력하세요"
-
+                disabled={loadingState}
             />
-            <SendButton type="submit" onKeyDown={handleKeyDown}>전송</SendButton>
+            <SendButton type="submit" onKeyDown={handleKeyDown} disabled={loadingState}>전송</SendButton>
         </Form>
     );
 };
@@ -53,7 +53,7 @@ const InputField = styled.input`
     border: 1px solid #444444;
     border-radius: 20px;
     margin-right: 10px;
-    background-color: #333333;
+    background-color: ${({ disabled }) => (disabled ? '#555555' : '#333333')};
     color: white;
 
     &:focus {
@@ -66,11 +66,11 @@ const InputField = styled.input`
 const SendButton = styled.button`
     font-weight: 500;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: ${({ disabled }) => (disabled ? '#999999' : '#007bff')};
     color: white;
     border: none;
     border-radius: 20px;
-    cursor: pointer;
+    cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
     transition: background-color 0.3s;
 
     &:hover {
