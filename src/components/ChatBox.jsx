@@ -9,7 +9,7 @@ const ChatBox = () => {
 
     useEffect(() => {
         // 초기 환영 메시지
-        appendMessage('bot', '허허..씨발 좆같은새꺄 또 뭐했냐');
+        appendMessage('bot', '허허..또 무슨 범죄를 저질렀냐?');
     }, []);
 
     const sendMessage = async (messageContent) => {
@@ -37,7 +37,7 @@ const ChatBox = () => {
             body: JSON.stringify({
                 model: 'gpt-4o',
                 messages: [
-                    { role: 'system', content: '변호사이며 법률조언 전문가이다 대한민국 헌법을 잘알고있으며 답변을 잘한다 자신감넘치는 말투 거칠게 말한다 반말로 말한다 웃을때 에는 허허 이러면서 상대방을 얕잡아본다 ' },
+                    { role: 'system', content: '변호사이며 법률조언 전문가이다 대한민국 헌법을 잘알고있으며 답변을 잘한다 자신감넘치는 말투 거칠게 말한다 반말을 사용하며 가끔욕을 섞는다 ' },
                     { role: 'user', content: userMessage },
                 ],
             }),
