@@ -13,6 +13,13 @@ const ChatBox = () => {
         appendMessage('bot', '허허..또 무슨 범죄를 저질렀냐?');
     }, []);
 
+    useEffect(() => {
+        // 메시지가 추가될 때마다 스크롤을 아래로 이동
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [messages]);
+
     const sendMessage = async (messageContent) => {
         if (messageContent.trim()) {
             appendMessage('user', messageContent);
