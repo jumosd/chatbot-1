@@ -74,17 +74,7 @@ const ChatBox = () => {
 export default ChatBox;
 
 
-const Title = styled.div`
-    padding: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffffff;
-    background-color: #222222;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom: 1px solid #333333;
-    text-align: center;
-`
+
 
 const ChatBoxContainer = styled.div`
     max-width: 500px;
@@ -100,6 +90,18 @@ const ChatBoxContainer = styled.div`
         height: 100vh;
     }
 `;
+
+const Title = styled.div`
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #222222;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid #333333;
+    text-align: center;
+`
 
 const MessagesContainer = styled.div`
     flex: 1;
