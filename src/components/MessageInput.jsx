@@ -52,7 +52,7 @@ const InputField = styled.input`
     padding: 10px;
     border: 1px solid #444444;
     border-radius: 20px;
-    margin-right: 10px;
+    margin-right: 20px;
     background-color: ${({ disabled }) => (disabled ? '#555555' : '#333333')};
     color: white;
 
@@ -65,7 +65,7 @@ const InputField = styled.input`
 
 const SendButton = styled.button`
     font-weight: 500;
-    padding: 10px 20px;
+    padding: 10px 30px;
     background-color: ${({ disabled }) => (disabled ? '#999999' : '#007bff')};
     color: white;
     border: none;
