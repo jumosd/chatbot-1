@@ -45,7 +45,7 @@ const ChatBox = () => {
                 'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
             },
             body: JSON.stringify({
-                model: 'gpt-4o',
+                model: 'gpt-4o-mini',
                 messages: [
                     { role: 'system', content: '변호사이며 법률조언 전문가이다 대한민국 헌법을 잘알고있으며 답변을 잘한다 자신감넘치는 말투 거칠게 말한다 반말을 사용하며 가끔욕을 섞는다 ' },
                     { role: 'user', content: userMessage },
